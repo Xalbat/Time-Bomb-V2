@@ -6,7 +6,7 @@
 	<div class="form-group row">
         <label for="patient" class="col-sm-2 col-form-label">Partie public ou privée : </label>
         <div class="col-sm-10">
-            <select  class="form-control" id="private">
+            <select  class="form-control" id="partiePrive">
                 <option>Public</option>
                 <option>Privé</option>
             </select>
@@ -16,7 +16,7 @@
 		<div class="form-group row">
 			<label for="patient" class="col-sm-2 col-form-label">Nombre de joueurs : </label>
 			<div class="col-sm-10">
-				<select  class="form-control" id="nbr-joueur">
+				<select  class="form-control" id="nbrJoueurs">
 					<option>4</option>
                     <option>5</option>
                     <option>6</option>
@@ -28,6 +28,6 @@
 	
 	
 	<div class="card-footer text-right">
-		<button  (click)="creerPartie()" class="btn btn-success m-1">Créer</button>
+		<button  (click)="creerPartie(partiePrive,nbrJoueurs)" class="btn btn-success m-1">Créer</button>
     </div>
 </div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CreationService } from '../creation.service';
+import { Partie } from '../partie';
+
 
 @Component({
   selector: 'app-creer-partie',
@@ -7,13 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreerPartieComponent implements OnInit {
 
-  constructor() { }
+  partie= new Partie();
 
-  ngOnInit(): void {
+  constructor(private srvCreator : CreationService) { }
+
+  ngOnInit() {
+    this.srvCreator.reload();
+
   }
 
 
-  public creerPartie(){
+  public creerPartie(partiePrive,nbrJoueurs){
+    this.srvCreator.add(this.partie)
 
     
   }
