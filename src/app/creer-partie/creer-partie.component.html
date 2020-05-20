@@ -1,5 +1,3 @@
-
-
 <div class="card m-3">
 	<div class="card-header">
 		<h5 class="card-title">Création d'une partie</h5>
@@ -8,13 +6,9 @@
 	<div class="form-group row">
         <label for="patient" class="col-sm-2 col-form-label">Partie public ou privée : </label>
         <div class="col-sm-10">
-            <select [(ngModel)]="visite.patient" class="form-control" id="private">
-                <option
-                    *ngFor="let patient of srvPatient.patients"
-                    [ngValue]="patient"
-                    >
-                    {{ patient.prenom }} {{ patient.nom }}
-                </option>
+            <select  class="form-control" id="private">
+                <option>Public</option>
+                <option>Privé</option>
             </select>
         </div>
     </div>
@@ -23,18 +17,17 @@
 			<label for="patient" class="col-sm-2 col-form-label">Nombre de joueurs : </label>
 			<div class="col-sm-10">
 				<select  class="form-control" id="nbr-joueur">
-					<option
-						*ngFor="let patient of srvPatient.patients"
-						[ngValue]="patient"
-						>
-						{{ patient.prenom }} {{ patient.nom }}
-					</option>
+					<option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
 				</select>
 			</div>
 		</div>
 	
 	
 	<div class="card-footer text-right">
-		<button *ngIf="!isEditing" (click)="creerPartie()" class="btn btn-success m-1">Ajouter</button>
+		<button  (click)="creerPartie()" class="btn btn-success m-1">Créer</button>
     </div>
 </div>
