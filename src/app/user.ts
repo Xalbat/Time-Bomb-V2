@@ -1,5 +1,5 @@
-import { Matches } from './matches';
-import { Cart } from './carte';
+//import { Matches } from './matches';
+//import { Cart } from './carte';
 
 export class User {
 
@@ -9,8 +9,8 @@ export class User {
         public username: string, 
         public password: string,
         public currentRole: string,
-        public currentMatch: Matches,
-        public hand: Array<Cart>
+        //public currentMatch: Matches,
+       // public hand: Array<Cart>
         ) 
     {
 

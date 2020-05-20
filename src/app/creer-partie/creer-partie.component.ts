@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CreationService } from '../creation.service';
-import { Partie } from '../partie';
+import { Match } from '../match';
+import { MatchesService } from '../matches.service';
 
 
 @Component({
@@ -10,19 +10,20 @@ import { Partie } from '../partie';
 })
 export class CreerPartieComponent implements OnInit {
 
-  partie= new Partie();
+  //size = ;
+  
+  //match = new Match(id, name, size);
 
-  constructor(private srvCreator : CreationService) { }
+  constructor(private srvMatch: MatchesService) { }
 
-  ngOnInit() {
-    this.srvCreator.reload();
+  ngOnInit() { }
 
-  }
+  public creerMatch(){
+  //this.srvMatch.creerPartie(this.match);
+  //this.match = new Match()
+}
 
 
-  public creerPartie(partiePrive,nbrJoueurs){
-    this.srvCreator.add(this.partie)
 
-    
-  }
+
 }

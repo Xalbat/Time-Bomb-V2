@@ -4,30 +4,27 @@
 	</div>
 	
 	<div class="form-group row">
-        <label for="patient" class="col-sm-2 col-form-label">Partie public ou privée : </label>
-        <div class="col-sm-10">
-            <select  class="form-control" id="partiePrive">
-                <option>Public</option>
-                <option>Privé</option>
-            </select>
-        </div>
-    </div>
-
-		<div class="form-group row">
-			<label for="patient" class="col-sm-2 col-form-label">Nombre de joueurs : </label>
-			<div class="col-sm-10">
-				<select  class="form-control" id="nbrJoueurs">
-					<option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-				</select>
-			</div>
+		<label for="nom" class="col-sm-2 col-form-label">Nom de la partie : </label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="name"  />
 		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="patient" class="col-sm-2 col-form-label">Nombre de joueurs : </label>
+		<div class="col-sm-10">
+			<select  class="form-control" id="size">
+				<option>4</option>
+                   <option>5</option>
+                   <option>6</option>
+                   <option>7</option>
+                   <option>8</option>
+			</select>
+		</div>
+	</div>
 	
 	
 	<div class="card-footer text-right">
-		<button  (click)="creerPartie(partiePrive,nbrJoueurs)" class="btn btn-success m-1">Créer</button>
+		<button  (click)="creerMatch()" class="btn btn-success m-1">Créer</button>
     </div>
 </div>

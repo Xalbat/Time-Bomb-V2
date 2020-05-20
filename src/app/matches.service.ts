@@ -15,6 +15,7 @@ export class MatchesService {
     this.apiUrl = `${this.appConfig.url}/matches`;
   }
 
+ 
   public getListePartiesEnAttenteEnCours() {
     this.http.get<Array<User>>(this.apiUrl)
         .subscribe()

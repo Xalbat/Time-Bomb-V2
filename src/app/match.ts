@@ -7,12 +7,12 @@ export class Match {
         public id: number, 
         public name: string, 
         public size: number, 
-        state: string, 
-        winner: string, 
-        owner: User, 
-        current: User, 
-        players: Array<User>, 
-        deck: Array<Card> ) 
+        state?: string, 
+        winner?: string, 
+        owner?: User, 
+        current?: User, 
+        players?: Array<User>, 
+        deck?: Array<Card> ) 
     {
     }
 
