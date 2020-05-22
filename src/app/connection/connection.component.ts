@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-connection',
@@ -10,15 +11,16 @@ export class ConnectionComponent implements OnInit {
 
   public user: User = new User();
 
-  constructor() {
-    this.user.password="";
+  constructor(private srvUser : UserService) {
+
   }
 
-  ngOnInit(): void {
+  ngOnInit() : void{
+   
   }
 
   public connection() {
-    // Requete connection
+    this.srvUser.connection(this.user)
   }
 
 }
