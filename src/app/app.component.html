@@ -12,6 +12,9 @@
       <li class="nav-item active" *ngIf="srvUser.user!=null" style="cursor:pointer">
         <a class="nav-link" routerLink="/deconnexion">Deconnexion</a>
       </li>
+      <li class="nav-item active" *ngIf="srvUser.user!=null" style="cursor:pointer">
+        <a class="nav-link" routerLink="/time-bomb">Go Partie</a>
+      </li>
       <li class="nav-item active" *ngIf="srvUser.user==null" style="cursor:pointer">
           <a class="nav-link" routerLink="/connexion">Se connecter</a>
       </li>

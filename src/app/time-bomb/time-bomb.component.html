@@ -44,7 +44,7 @@
             <div class="col-3" style="border:solid">
                 <span style="text-align: center">{{user.name}} ({{user.currentRole}})</span>
                 <div *ngFor="let card from user.hand()"onmouseup="cursor()" onmouseup="jeux(user,card.id)">
-                    <img  src= " 'assets\' + card | typeCard + '.jpg' ">
+                    <img //reglage taille// src= " 'assets\' + //Pipe=>chaine de caractère("bomb", "bait", "deffuse", "recto")// + '.jpg' ">
                 </div>
             </div>
         </div>

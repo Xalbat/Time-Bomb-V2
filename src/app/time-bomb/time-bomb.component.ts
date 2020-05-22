@@ -13,4 +13,10 @@ export class TimeBombComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public jouer(user, card) {
+    //if c'est toi le joueur => on coupe pas une de ses carte
+    //if  c'est pas à toi de jouer
+    //sinon requete
+  }
+
 }
