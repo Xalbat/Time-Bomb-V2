@@ -40,10 +40,8 @@ export class TimeBombComponent implements OnInit {
     else {
       timer(1000);
       this.jouer(user, card, current)
-
     }
-    //if  c'est pas à toi de jouer
-    //sinon requete
+    
   }
 
   
