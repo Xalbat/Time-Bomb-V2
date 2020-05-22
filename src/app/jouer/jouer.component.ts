@@ -30,7 +30,13 @@ export class JouerComponent implements OnInit {
   }
 
   public rejoindre(match) {
-     this.srvMatch.rejoindre(match.id, this.srvUser.user);
+    this.match=match;
+    this.srvMatch.rejoindre(match.id, this.srvUser.user);
+  }
+
+  public demarrer(match) {
+    this.srvMatch.demarrerPartie(match)
+    this.jouerPartie();
   }
 
   public supprimer(match) {
@@ -43,5 +49,11 @@ export class JouerComponent implements OnInit {
 
   public jouerPartie() {
     //redirect à Time-Bomb
+  }
+
+  public regarder(match: Match) {
+    this.match=match;
+    this.rejoindre(match);
+    this.jouerPartie();
   }
 }
