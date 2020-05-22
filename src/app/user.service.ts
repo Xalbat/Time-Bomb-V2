@@ -19,9 +19,9 @@ export class UserService {
 
   public connection(user: User) {
     this.http.post<User>(this.appConfig.url + "/users/login", user)
-        .subscribe(user => {
-          this.user=user;
-          this.appConfig.setUser(user)
+        .subscribe(respUser => {
+          this.user=respUser;
+          this.appConfig.setUser(user.username, user.password)
         })
   }
 

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Match } from '../match';
 import { MatchService } from '../match.service';
-import { User } from '../user';
-import { TimeInterval } from 'rxjs';
 import { UserService } from '../user.service';
 
 @Component({
@@ -18,15 +16,18 @@ export class JouerComponent implements OnInit {
   constructor(public srvMatch : MatchService, public srvUser : UserService) { }
 
   ngOnInit(): void {
-    this.interval = setInterval(this.srvMatch.getListePartiesEnAttenteEnCours,1000)
+   this.srvMatch.getListePartiesEnAttenteEnCours();
   }
 
   public listeMatchEnCours() {
-    return this.srvMatch.getListePartiesEnAttenteEnCours;
+    this.srvMatch.getListePartiesEnAttenteEnCours();
   }
 
   public creer() {
+    alert(this.match)
     this.srvMatch.creerPartie(this.match);
+    this.match=new Match();
+    this.srvMatch.getListePartiesEnAttenteEnCours();
   }
 
   public rejoindre(match) {
@@ -41,10 +42,6 @@ export class JouerComponent implements OnInit {
   public supprimer(match) {
     this.srvMatch.delete(match);
     this.match=new Match();
-  }
-
-  public clearInterval() {
-    clearInterval(this.interval)
   }
 
   public jouerPartie() {

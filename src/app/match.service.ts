@@ -10,24 +10,24 @@ import { Card } from './card';
 })
 export class MatchService {
 
-  private apiUrl: string = "";
+  private apiUrl: string;
   public currentMatch = null;
-  public match : Match;
-  public matches : Array<Match>;
+  public match = new Match();
+  public matchesEnCours : Array<Match>;
+  public matchesTermines : Array<Match>;
   
   constructor(private appConfig: AppConfigService, private http: HttpClient) {
     this.apiUrl = `${this.appConfig.url}/matches`;
   }
 
- 
   public getListePartiesEnAttenteEnCours() {
     this.http.get<Array<Match>>(this.apiUrl, this.appConfig.httpOptions)
-        .subscribe(matches => this.matches = matches)
+        .subscribe(matches => this.matchesEnCours = matches)
   }
 
   public getListePartiesTerminees() {
     this.http.get<Array<Match>>(this.apiUrl + "/terminated", this.appConfig.httpOptions)
-        .subscribe(matches => this.matches = matches)
+        .subscribe(matches => this.matchesTermines = matches)
   }
   
   public creerPartie(match: Match) {

@@ -8,13 +8,15 @@ import { MatchService } from '../match.service';
 })
 export class PartiesComponent implements OnInit {
 
-  constructor(private srvMatch:MatchService) { }
+  constructor(public srvMatch:MatchService) { }
 
   ngOnInit(): void {
+    this.listeMatchterminees();
+    alert(this.srvMatch.matchesTermines)
   }
 
   public listeMatchterminees() {
-    return this.srvMatch.getListePartiesTerminees;
+    this.srvMatch.getListePartiesTerminees();
 }
 
 }

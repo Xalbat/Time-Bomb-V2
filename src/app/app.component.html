@@ -3,8 +3,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active" *ngIf="srvUser.user!=null" style="cursor:pointer">
-        <a class="nav-link"> Bonjour {{srvUser.user.name}}</a>
+      <li class="nav-item active" *ngIf="srvUser.user!=null">
+        <a class="nav-link" style="color:blueviolet;font-weight: bold;"> Bonjour {{srvUser.user.name}}</a>
       </li>
       <li class="nav-item active" *ngIf="srvUser.user!=null" style="cursor:pointer">
         <a class="nav-link" routerLink="/jouer">Jouer</a>
@@ -21,7 +21,7 @@
       <li class="nav-item active" *ngIf="srvUser.user==null" style="cursor:pointer">
         <a class="nav-link" routerLink="/inscription">S'inscrire</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item active" *ngIf="srvUser.user!=null" style="cursor:pointer">
           <a class="nav-link" routerLink="/parties" style="cursor:pointer">Listes des parties finies</a>
       </li>
       <li class="nav-item active">

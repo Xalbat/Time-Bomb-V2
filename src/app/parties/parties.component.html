@@ -13,11 +13,13 @@
 	</thead>
 
 	<tbody>
-		<tr *ngFor="let match of listeMatchterminees()" >
+		<tr *ngFor="let match of srvMatch.matchesTermines" >
 			<td>{{ match.id }}</td>
 			<td>{{ match.name }}</td>
             <td>{{ match.size }} joueur(s)</td>
-            <td>{{ match.state }}</td>
+			<td>
+                <span *ngFor="let player of match.players">{{player.name}} | </span>
+            </td>
             <td>{{ match.winner }}</td>
 		</tr>
 	</tbody>

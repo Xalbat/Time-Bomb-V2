@@ -40,38 +40,37 @@
 
 <table class="table table-striped">
 	<thead>
-		<tr>
+		<tr align:center>
 			<th>ID</th>
 			<th>Nom</th>
 			<th>Taille</th>
             <th>Etat</th>
             <th>Propiétaire</th>
 			<th>Joueur(s)</th>
-			<th></th>
+			<th><button (click)="listeMatchEnCours()" class="btn btn-primary m-1">Rafraîchir</button></th>
 		</tr>
 	</thead>
 
 	<tbody>
         <tr>
             <td></td>
-			<td><input type="text" clas="form-control" placeholder="Nom de la partie"></td>
-			<td><input type="number" min="4" max="8" clas="form-control" placeholder="Nombre de joueurs"></td>
-			<td></td>
-			<td></td>
+			<td><input type="text" clas="form-control" required [(ngModel)]="match.name" placeholder="Nom de la partie"></td>
+			<td><input type="number" min="4" max="8" required style="width:95px" [(ngModel)]="match.size" class="form-control" placeholder="Nombre de joueurs"></td>
+			<td>Création</td>
+            <td>Vous</td>
+            <td>0 pour l'instant</td>
 			<td>
 				<button (click)="creer()" class="btn btn-success m-1">Créer</button>
 			</td>
         </tr>
-		<tr *ngFor="let match of listeMatchEnCours()" >
+		<tr *ngFor="let match of srvMatch.matchesEnCours" >
 			<td>{{ match.id }}</td>
 			<td>{{ match.name }}</td>
-			<td>{{ match.player.length }} / {{ match.size }} joueur(s)</td>
+			<td>{{ match.players.length }} / {{ match.size }} joueur(s)</td>
             <td>{{ match.state }}</td>
             <td>{{ match.owner.name }}</td>
 			<td>
-                <span *ngFor="let player of match.players()">
-                    {{player.name}} | &nbsp;
-                </span>
+                <span *ngFor="let player of match.players">{{player.name}} | </span>
             </td>
             <td *ngIf="match.owner.id==srvUser.user.id">
                 <button (click)="supprimer(match)" class="btn btn-danger m-1">Supprimer</button>
