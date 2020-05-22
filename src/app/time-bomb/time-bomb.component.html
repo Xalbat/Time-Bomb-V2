@@ -1,5 +1,4 @@
- <!-- Quand la partie du user démarre
-<span *ngIf="match.state=='PLAYING'">
+<span> <!-- *ngIf="match.state=='PLAYING'" -->
 
     <br><br>
 
@@ -29,9 +28,9 @@
         </thead>
         <tbody>
           <tr>
-            <th>{{ srvMatch.match.manche }}</th>
+            <!-- <th>{{ srvMatch.match.manche }}</th>
             <td>{{ srvMatch.match.detonateur }}</td>
-            <td>{{ user.username.current }}</td>
+            <td>{{ current }}</td> -->
           </tr>
         </tbody>
       </table>
@@ -42,12 +41,12 @@
     <div>
         <div *ngFor="let user from match.players(), index as i" class="row" >
             <div class="col-3" style="border:solid">
-                <span style="text-align: center">{{user.name}} ({{user.currentRole}})</span>
-                <div *ngFor="let card from user.hand()"onmouseup="cursor()" onmouseup="jeux(user,card.id)">
-                    <img //reglage taille// src= " 'assets\' + //Pipe=>chaine de caractère("bomb", "bait", "deffuse", "recto")// + '.jpg' ">
-                </div>
+              <span style="text-align: center">{{user.name}} ({{user.currentRole}})</span>
+              <div *ngFor="let card from user.hand()"onmouseup="cursor()" onmouseup="jeux(user,card.id)" (click)="choisirCarte(card)">
+                <img //reglage taille// src= " 'assets\' + //Pipe=>chaine de caractère("bomb", "bait", "deffuse", "recto")// + '.jpg' ">
+              </div>
             </div>
         </div>
     </div>
 
-</span>  -->
+</span>  
