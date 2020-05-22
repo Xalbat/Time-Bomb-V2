@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatchService } from '../match.service';
 
 @Component({
   selector: 'app-time-bomb',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimeBombComponent implements OnInit {
 
-  constructor() { }
+  constructor(public srvMatch: MatchService) { }
 
   ngOnInit(): void {
   }

@@ -30,7 +30,6 @@ export class JouerComponent implements OnInit {
   }
 
   public rejoindre(match) {
-    this.match=match;
     this.srvMatch.rejoindre(match.id, this.srvUser.user);
   }
 
@@ -52,7 +51,6 @@ export class JouerComponent implements OnInit {
   }
 
   public regarder(match: Match) {
-    this.match=match;
     this.rejoindre(match);
     this.jouerPartie();
   }

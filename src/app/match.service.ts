@@ -10,6 +10,7 @@ import { Card } from './card';
 })
 export class MatchService {
   private apiUrl: string = "";
+  public currentMatch : Match;
   public match : Match;
   public matches : Array<Match> = null;
   
@@ -31,6 +32,7 @@ export class MatchService {
   public creerPartie(match: Match) {
     this.http.post<Match>(this.apiUrl, match, this.appConfig.httpOptions)
         .subscribe()
+    this.currentMatch=match;
   }
 
   public demarrerPartie(match: Match) {
@@ -38,8 +40,8 @@ export class MatchService {
     .subscribe()
   }
 
-  public partieDetaille(id: number) {
-    this.http.get<Match>(this.apiUrl + "/" + id, this.appConfig.httpOptions)
+  public partieDetaille(match) {
+    this.http.get<Match>(this.apiUrl + "/" + match.id, this.appConfig.httpOptions)
         .subscribe(match => this.match = match)
   }
 
@@ -47,8 +49,9 @@ export class MatchService {
     this.http.delete(this.apiUrl+ "/" + match.id, this.appConfig.httpOptions)
   }
 
-  public rejoindre(id: number, user: User) {
-    this.http.put(this.apiUrl + "/" + id, user, this.appConfig.httpOptions)
+  public rejoindre(match, user: User) {
+    this.http.put(this.apiUrl + "/" + match.id, user, this.appConfig.httpOptions)
+    this.currentMatch=match;
   }
 
   public jouer(match:Match, card:Card) {
