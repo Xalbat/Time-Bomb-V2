@@ -20,7 +20,9 @@ export class UserService {
   public connection(user: User) {
     this.http.post<User>(this.appConfig.url + "/users/login", user)
         .subscribe(respUser => {
-          this.user=respUser;
+          this.user=user;
+          this.user.name=respUser.name;
+          this.user.id=respUser.id;
           this.appConfig.setUser(user.username, user.password)
         })
   }

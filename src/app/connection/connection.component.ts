@@ -19,6 +19,7 @@ export class ConnectionComponent implements OnInit {
   public connection() {
     this.srvUser.connection(this.user)
     this.router.navigate (['/home']);
+    this.user = new User();
   }
 
 }

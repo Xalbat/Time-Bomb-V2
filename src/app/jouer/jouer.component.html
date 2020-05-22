@@ -1,7 +1,7 @@
 <div *ngIf="srvMatch.currentMatch!=null ">
 
     <label>Récap de votre partie</label>
-    <table >
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
@@ -19,16 +19,14 @@
             <td>{{ srvMatch.currentMatch.players.length }} / {{ srvMatch.currentMatch.size }}</td>
             <td>{{ srvMatch.currentMatch.state }}</td>
             <td>{{ srvMatch.currentMatch.owner.name }}</td>
-            <td>
-                <span *ngFor="let player of srvMatch.currentMatch.players()">
-                    {{player.name}}, &nbsp;
-                </span>
-            </td>
-            <td *ngIf="srvMatch.currentMatch.state=='READY'">
-                <button onclick="jouerPartie()" class="btn btn-success">Jouer la partie</button>
-            </td>
-            <td *ngIf="srvMatch.currentMatch.owner.id==srvUser.user.id && srvMatch.currentMatch.players.length>3">
-                <button onclick="jouerPartie()" class="btn btn-success">Lancer la partie</button>
+            <td><span *ngFor="let player of srvMatch.currentMatch.players">{{player.name}} |</span></td>
+            <td >
+                <button *ngIf="srvMatch.currentMatch.state=='READY'"
+                (click)="jouerPartie()" class="btn btn-success">Jouer la partie</button>
+                <button *ngIf="srvMatch.currentMatch.owner.id==srvUser.user.id && srvMatch.currentMatch.players.length>3"
+                (click)="jouerPartie()" class="btn btn-success">Lancer la partie</button>
+                <button  *ngIf="srvMatch.currentMatch.owner.id==srvUser.user.id"
+                (click)="supprimer(match)" class="btn btn-danger m-1">Supprimer</button>
             </td>
             
         </tbody>
@@ -47,7 +45,7 @@
             <th>Etat</th>
             <th>Propiétaire</th>
 			<th>Joueur(s)</th>
-			<th><button (click)="listeMatchEnCours()" class="btn btn-primary m-1">Rafraîchir</button></th>
+			<th><button (click)="refresh()" class="btn btn-primary m-1">Rafraîchir</button></th>
 		</tr>
 	</thead>
 
@@ -63,23 +61,22 @@
 				<button (click)="creer()" class="btn btn-success m-1">Créer</button>
 			</td>
         </tr>
-		<tr *ngFor="let match of srvMatch.matchesEnCours" >
+		<tr *ngFor="let match of srvMatch.matchesEnCours" align:center>
 			<td>{{ match.id }}</td>
 			<td>{{ match.name }}</td>
 			<td>{{ match.players.length }} / {{ match.size }} joueur(s)</td>
             <td>{{ match.state }}</td>
-            <td>{{ match.owner.name }}</td>
+            <td>{{ match.owner.name }} {{match.owner.id}}</td>
 			<td>
                 <span *ngFor="let player of match.players">{{player.name}} | </span>
             </td>
-            <td *ngIf="match.owner.id==srvUser.user.id">
-                <button (click)="supprimer(match)" class="btn btn-danger m-1">Supprimer</button>
-            </td>
-			<td *ngIf="match.owner.id!=srvUser.user.id && match.state=='WAITING'">
-				<button (click)="rejoindre(match)" class="btn btn-primary m-1">Rejoindre</button>
-            </td>
-            <td *ngIf="match.owner.id!=srvUser.user.id && match.state=='PLAYING'">
-				<button (click)="regarder(match)" class="btn btn-primary m-1">Regarder</button>
+            <td>
+                <button  *ngIf="match.owner.id==srvUser.user.id"
+                (click)="supprimer(match)" class="btn btn-danger m-1">Supprimer</button>
+                <button *ngIf="match.state=='WAITING'"
+                (click)="rejoindre(match)" class="btn btn-primary m-1">Rejoindre</button>
+                <button  *ngIf="match.state=='PLAYING'"
+                (click)="regarder(match)" class="btn btn-primary m-1">Regarder</button>
             </td>
 		</tr>
 	</tbody>

@@ -16,22 +16,32 @@ export class JouerComponent implements OnInit {
   constructor(public srvMatch : MatchService, public srvUser : UserService) { }
 
   ngOnInit(): void {
-   this.srvMatch.getListePartiesEnAttenteEnCours();
+    setInterval( () => this.maPartie(), 2000);
+    this.refresh();
   }
 
-  public listeMatchEnCours() {
+  public quitter() {
+    this.srvMatch.quitter();
+  }
+
+  public refresh() {
     this.srvMatch.getListePartiesEnAttenteEnCours();
   }
 
   public creer() {
-    alert(this.match)
     this.srvMatch.creerPartie(this.match);
     this.match=new Match();
-    this.srvMatch.getListePartiesEnAttenteEnCours();
+    setTimeout(() => this.refresh(),500)
   }
 
   public rejoindre(match) {
-    this.srvMatch.rejoindre(match.id, this.srvUser.user);
+    this.srvMatch.rejoindre(match);
+    this.maPartie();
+    setTimeout(() => this.refresh(),500);
+  }
+
+  public maPartie() {
+    this.srvMatch.maPartie();
   }
 
   public demarrer(match) {
@@ -41,7 +51,7 @@ export class JouerComponent implements OnInit {
 
   public supprimer(match) {
     this.srvMatch.delete(match);
-    this.match=new Match();
+    setTimeout(() => this.refresh(),500)
   }
 
   public jouerPartie() {

@@ -30,6 +30,16 @@ export class MatchService {
         .subscribe(matches => this.matchesTermines = matches)
   }
   
+  public maPartie() {
+    this.http.get<Match>(this.apiUrl + "/mine", this.appConfig.httpOptions)
+        .subscribe(match => this.currentMatch = match)
+  } 
+
+  public quitter() {
+    this.http.put<Match>(this.apiUrl + "/leave", this.appConfig.httpOptions)
+      .subscribe()
+  }
+
   public creerPartie(match: Match) {
     this.http.post<Match>(this.apiUrl, match, this.appConfig.httpOptions)
         .subscribe()
@@ -47,14 +57,17 @@ export class MatchService {
 
   public delete(match: Match) {
     this.http.delete(this.apiUrl+ "/" + match.id, this.appConfig.httpOptions)
+        .subscribe()
   }
 
-  public rejoindre(match, user: User) {
-    this.http.put(this.apiUrl + "/" + match.id, user, this.appConfig.httpOptions)
+  public rejoindre(match) {
+    this.http.put(this.apiUrl + "/" + match.id, null, this.appConfig.httpOptions)
+      .subscribe();
   }
 
   public jouer(match:Match, card:Card) {
     this.http.put(this.apiUrl + "/" + match.id +"/play" , card, this.appConfig.httpOptions )
+      .subscribe();
   }
 
 }

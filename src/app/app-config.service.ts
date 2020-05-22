@@ -11,7 +11,6 @@ export class AppConfigService {
   public url: string = "http://176.143.99.66:8080/api";
   public httpOptions: object = null;
   UserService: any;
-  currentUser: User;
 
   constructor() {}
 
