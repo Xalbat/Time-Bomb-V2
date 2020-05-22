@@ -18,6 +18,7 @@ export class InscriptionComponent implements OnInit {
 
   public inscription() {
     this.srvUser.inscription(this.user);
+    this.user=new User();
   }
 
 }

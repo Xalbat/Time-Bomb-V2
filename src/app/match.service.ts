@@ -33,6 +33,11 @@ export class MatchService {
         .subscribe()
   }
 
+  public demarrerPartie(match: Match) {
+    this.http.post<Match>(this.apiUrl + "/" + match.id + "/start", match, this.appConfig.httpOptions)
+    .subscribe()
+  }
+
   public partieDetaille(id: number) {
     this.http.get<Match>(this.apiUrl + "/" + id, this.appConfig.httpOptions)
         .subscribe(match => this.match = match)

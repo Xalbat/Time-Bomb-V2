@@ -1,4 +1,4 @@
-<!-- <div *ngIf="match.state=='READY' || match.state=='WAITING' ">
+<div *ngIf="match.state=='READY' || match.state=='WAITING' ">
 
     <label>Récap de votre partie</label>
     <table >
@@ -72,9 +72,12 @@
             <td *ngIf="match.owner.id==user.id">
                 <button (click)="supprimer(match)" class="btn btn-danger m-1">Supprimer</button>
             </td>
-			<td *ngIf="match.owner.id!=user.id">
+			<td *ngIf="match.owner.id!=user.id && match.state=='WAITING'">
 				<button (click)="rejoindre(match)" class="btn btn-primary m-1">Rejoindre</button>
-			</td>
+            </td>
+            <td *ngIf="match.owner.id!=user.id && match.state=='PLAYING'">
+				<button (click)="rejoindre(match)" class="btn btn-primary m-1">Regarder</button>
+            </td>
 		</tr>
 	</tbody>
-</table> -->
+</table>

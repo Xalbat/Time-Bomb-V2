@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
 })
 export class ConnectionComponent implements OnInit {
 
-  public user: User = new User();
+  public user = null;
 
   constructor(private srvUser : UserService) {
 

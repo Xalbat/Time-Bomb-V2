@@ -13,7 +13,6 @@ import { UserService } from '../user.service';
 export class JouerComponent implements OnInit {
 
   interval: any;
-  user: User;
   match=new Match;
 
   constructor(private srvMatch : MatchService, private srvUser : UserService) { }
@@ -31,7 +30,7 @@ export class JouerComponent implements OnInit {
   }
 
   public rejoindre(match) {
-     //   this.srvMatch.rejoindre(user, match);
+     this.srvMatch.rejoindre(match.id, this.srvUser.user);
   }
 
   public supprimer(match) {

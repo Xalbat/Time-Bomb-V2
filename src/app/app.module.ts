@@ -33,7 +33,8 @@ const routes: Routes = [
     ReglesComponent,
     TimeBombComponent,
     InscriptionComponent,
-    ConnectionComponent
+    ConnectionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule, FormsModule,
