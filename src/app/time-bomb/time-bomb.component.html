@@ -1,19 +1,18 @@
-<span>
-
-    <div style="display: flex;" *ngIf="user.currentRole=='SHERLOCK'">
-      <img  src= " 'assets\sherlock.jpg' ">
-      <div >
-          Vous êtes dans la team de Sherlock Holmes. Désamorcer les cables avant que la bombe n'explose !
+  <div style="display: flex;" *ngIf="dataUser.role=='SHERLOCK'">
+      <img style="width: 5%;" src="assets\sherlock.jpg">
+      <div style="margin-left: 15px;">
+          <p>Vous êtes dans la team de Sherlock Holmes. </p>
+          <p>Désamorcer les cables avant que la bombe n'explose !</p>
       </div>
   </div>
 
-  <div style="display: flex;" *ngIf="user.currentRole=='MORIARTY'">
-      <img  src= " 'assets\moriarty.jpg' ">
+  <div style="display: flex;" *ngIf="dataUser.role=='MORIARTY'">
+      <img  src= "assets\moriarty.jpg">
       <div >
           Vous êtes dans la team de Moriarty. Faites exploser la bombe ou empêchez les compères de Holmes de la désamorcer !
       </div>
   </div>
-
+<!-- 
   <br><br>
 
   <table class="table">
@@ -26,9 +25,9 @@
       </thead>
       <tbody>
         <tr>
-          <!-- <th>{{ srvMatch.match.manche }}</th>
-          <td>{{ srvMatch.match.detonateur }}</td>
-          <td>{{ current }}</td> -->
+          <th>{{ srvMatch.match.manche }}</th>
+          <td>{{ srvMatch.match. }}</td>
+          <td>{{ current }}</td>
         </tr>
       </tbody>
     </table>
@@ -45,6 +44,4 @@
             </div>
           </div>
       </div>
-  </div>
-
-</span>  
+  </div> -->

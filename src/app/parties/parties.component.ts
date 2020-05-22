@@ -7,7 +7,7 @@ import { MatchService } from '../match.service';
   styleUrls: ['./parties.component.css']
 })
 export class PartiesComponent implements OnInit {
-
+  
   constructor(public srvMatch:MatchService) { }
 
   ngOnInit(): void {
