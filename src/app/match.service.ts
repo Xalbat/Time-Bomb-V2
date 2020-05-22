@@ -45,8 +45,8 @@ export class MatchService {
         .subscribe()
   }
 
-  public demarrerPartie(match: Match) {
-    this.http.post<Match>(this.apiUrl + "/" + match.id + "/start", match, this.appConfig.httpOptions)
+  public demarrerPartie() {
+    this.http.post<Match>(this.apiUrl + "/" + this.currentMatch.id + "/start", this.currentMatch, this.appConfig.httpOptions)
     .subscribe()
   }
 

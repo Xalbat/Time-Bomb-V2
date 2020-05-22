@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Match } from '../match';
 import { MatchService } from '../match.service';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-jouer',
@@ -13,7 +14,7 @@ export class JouerComponent implements OnInit {
   interval: any;
   match=new Match;
 
-  constructor(public srvMatch : MatchService, public srvUser : UserService) { }
+  constructor(public srvMatch : MatchService, public srvUser : UserService, private router: Router) { }
 
   ngOnInit(): void {
     setInterval( () => this.maPartie(), 2000);
@@ -45,7 +46,7 @@ export class JouerComponent implements OnInit {
   }
 
   public demarrer(match) {
-    this.srvMatch.demarrerPartie(match)
+    this.srvMatch.demarrerPartie()
     this.jouerPartie();
   }
 
@@ -55,7 +56,7 @@ export class JouerComponent implements OnInit {
   }
 
   public jouerPartie() {
-    //redirect à Time-Bomb
+    this.router.navigate (['/home']);
   }
 
   public regarder(match: Match) {

@@ -21,7 +21,7 @@
             <td>{{ srvMatch.currentMatch.owner.name }}</td>
             <td><span *ngFor="let player of srvMatch.currentMatch.players">{{player.name}} |</span></td>
             <td >
-                <button *ngIf="srvMatch.currentMatch.state=='READY'"
+                <button *ngIf="srvMatch.currentMatch.state=='PLAYING'"
                 (click)="jouerPartie()" class="btn btn-success">Jouer la partie</button>
                 <button *ngIf="srvMatch.currentMatch.owner.id==srvUser.user.id && srvMatch.currentMatch.players.length>3"
                 (click)="jouerPartie()" class="btn btn-success">Lancer la partie</button>
