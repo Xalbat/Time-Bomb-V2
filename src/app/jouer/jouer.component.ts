@@ -17,7 +17,6 @@ export class JouerComponent implements OnInit {
   constructor(public srvMatch : MatchService, public srvUser : UserService, private router: Router) { }
 
   ngOnInit(): void {
-    setInterval( () => this.maPartie(), 2000);
     this.refresh();
   }
 
@@ -27,6 +26,7 @@ export class JouerComponent implements OnInit {
 
   public refresh() {
     this.srvMatch.getListePartiesEnAttenteEnCours();
+    this.maPartie();
   }
 
   public creer() {
@@ -45,7 +45,7 @@ export class JouerComponent implements OnInit {
     this.srvMatch.maPartie();
   }
 
-  public demarrer(match) {
+  public demarrer() {
     this.srvMatch.demarrerPartie()
     this.jouerPartie();
   }
@@ -56,7 +56,7 @@ export class JouerComponent implements OnInit {
   }
 
   public jouerPartie() {
-    this.router.navigate (['/home']);
+    this.router.navigate (['/time-bomb']);
   }
 
   public regarder(match: Match) {

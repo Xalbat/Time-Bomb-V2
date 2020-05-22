@@ -23,8 +23,8 @@
             <td >
                 <button *ngIf="srvMatch.currentMatch.state=='PLAYING'"
                 (click)="jouerPartie()" class="btn btn-success">Jouer la partie</button>
-                <button *ngIf="srvMatch.currentMatch.owner.id==srvUser.user.id && srvMatch.currentMatch.players.length>3"
-                (click)="jouerPartie()" class="btn btn-success">Lancer la partie</button>
+                <button *ngIf="srvMatch.currentMatch.owner.id==srvUser.user.id && srvMatch.currentMatch.state=='READY'"
+                (click)="demarrer()" class="btn btn-success">Lancer la partie</button>
                 <button  *ngIf="srvMatch.currentMatch.owner.id==srvUser.user.id"
                 (click)="supprimer(match)" class="btn btn-danger m-1">Supprimer</button>
             </td>
@@ -32,9 +32,11 @@
         </tbody>
     </table>
 
+    <br>
+
 </div>
 
-<br><br>
+
 
 <table class="table table-striped">
 	<thead>
