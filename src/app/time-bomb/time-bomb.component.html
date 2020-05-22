@@ -1,0 +1,33 @@
+<!-- Quand la partie du user démarre -->
+<span *ngIf="user.currentMatch=='PLAYING'">
+
+    <br><br>
+
+    <div style="display: flex;" *ngIf="user.currentRole=='SHERLOCK'">
+        <img  src= " 'assets\sherlock.jpg' ">
+        <div >
+            Vous êtes dans la team de Sherlock Holmes. Désamorcer les cables avant que la bombe n'explose !
+        </div>
+    </div>
+    
+    <div style="display: flex;" *ngIf="user.currentRole=='MORIARTY'">
+        <img  src= " 'assets\moriarty.jpg' ">
+        <div >
+            Vous êtes dans la team de Moriarty. Faites exploser la bombe ou empêchez les compères de Holmes de la désamorcer !
+        </div>
+    </div>
+    
+    <br><br>
+    
+    <div>
+        <div *ngFor="let user from match.players(), index as i" class="row" >
+            <div class="col-3" style="border:solid">
+                <span style="text-align: center">{{user.name}} ({{user.currentRole}})</span>
+                <div *ngFor="let card from user.hand()"onmouseup="cursor()" onmouseup="jeux(user,card.id)">
+                    <img  src= " 'assets\' + card | typeCard + '.jpg' ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</span>

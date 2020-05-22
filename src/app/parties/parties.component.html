@@ -1,0 +1,24 @@
+<br>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nom</th>
+			<th>Taille</th>
+            <th>Joueur(s)</th>
+            <th>Gagnant</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let match of listeMatchterminees()" >
+			<td>{{ match.id }}</td>
+			<td>{{ match.name }}</td>
+            <td>{{ match.size }} joueur(s)</td>
+            <td>{{ match.state }}</td>
+            <td>{{ match.winner }}</td>
+		</tr>
+	</tbody>
+</table>

@@ -8,6 +8,6 @@ export class Card {
         public reveal: boolean,
         public match: Match,
         public owner: User,
-    )
-    {}
+    ) {}
+    
 }

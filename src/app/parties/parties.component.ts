@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatchService } from '../match.service';
 
 @Component({
   selector: 'app-parties',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private srvMatch:MatchService) { }
 
   ngOnInit(): void {
   }
+
+  public listeMatchterminees() {
+    return this.srvMatch.getListePartiesTerminees;
+}
 
 }
