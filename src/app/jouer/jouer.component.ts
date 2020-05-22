@@ -15,7 +15,7 @@ export class JouerComponent implements OnInit {
   interval: any;
   match=new Match;
 
-  constructor(private srvMatch : MatchService, private srvUser : UserService) { }
+  constructor(public srvMatch : MatchService, public srvUser : UserService) { }
 
   ngOnInit(): void {
     this.interval = setInterval(this.srvMatch.getListePartiesEnAttenteEnCours,1000)
@@ -40,6 +40,7 @@ export class JouerComponent implements OnInit {
 
   public supprimer(match) {
     this.srvMatch.delete(match);
+    this.match=new Match();
   }
 
   public clearInterval() {

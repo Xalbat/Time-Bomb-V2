@@ -9,8 +9,9 @@ import { Card } from './card';
   providedIn: 'root'
 })
 export class MatchService {
+
   private apiUrl: string = "";
-  public currentMatch : Match;
+  public currentMatch = null;
   public match : Match;
   public matches : Array<Match> = null;
   
@@ -32,7 +33,6 @@ export class MatchService {
   public creerPartie(match: Match) {
     this.http.post<Match>(this.apiUrl, match, this.appConfig.httpOptions)
         .subscribe()
-    this.currentMatch=match;
   }
 
   public demarrerPartie(match: Match) {
@@ -51,7 +51,6 @@ export class MatchService {
 
   public rejoindre(match, user: User) {
     this.http.put(this.apiUrl + "/" + match.id, user, this.appConfig.httpOptions)
-    this.currentMatch=match;
   }
 
   public jouer(match:Match, card:Card) {

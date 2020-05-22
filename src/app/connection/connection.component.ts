@@ -11,13 +11,9 @@ export class ConnectionComponent implements OnInit {
 
   public user = null;
 
-  constructor(private srvUser : UserService) {
+  constructor(private srvUser : UserService) {}
 
-  }
-
-  ngOnInit() : void{
-   
-  }
+  ngOnInit() : void{}
 
   public connection() {
     this.srvUser.connection(this.user)
