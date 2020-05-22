@@ -24,4 +24,12 @@ export class UserService {
 
   }
 
+  public deconnexion(user: User) {
+    this.http.put<User>(this.appConfig.url + "/home", user)
+        .subscribe()
+
+  }
+
+
+
 }

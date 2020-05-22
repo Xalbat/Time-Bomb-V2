@@ -12,6 +12,7 @@ import { ReglesComponent } from './regles/regles.component';
 import { HomeComponent } from './home/home.component';
 import { TimeBombComponent } from './time-bomb/time-bomb.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { DeconnexionComponent } from './deconnexion/deconnexion.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -34,7 +35,8 @@ const routes: Routes = [
     TimeBombComponent,
     InscriptionComponent,
     ConnectionComponent,
-    HomeComponent
+    HomeComponent,
+    DeconnexionComponent
   ],
   imports: [
     BrowserModule, FormsModule,
