@@ -13,7 +13,7 @@ export class MatchService {
   private apiUrl: string = "";
   public currentMatch = null;
   public match : Match;
-  public matches : Array<Match> = null;
+  public matches : Array<Match>;
   
   constructor(private appConfig: AppConfigService, private http: HttpClient) {
     this.apiUrl = `${this.appConfig.url}/matches`;

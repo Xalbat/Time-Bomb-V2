@@ -1,28 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightgrey;">
-  <a class="navbar-brand" >Time-Bomb ONLINE</a>
+  <a class="navbar-brand" routerLink="/home" style="cursor:pointer" >Time-Bomb ONLINE</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active" *ngIf="srvUser.user!=null">
+      <li class="nav-item active" *ngIf="srvUser.user!=null" style="cursor:pointer">
         <a class="nav-link"> Bonjour {{srvUser.user.name}}</a>
       </li>
-      <li class="nav-item active" *ngIf="srvUser.user!=null">
+      <li class="nav-item active" *ngIf="srvUser.user!=null" style="cursor:pointer">
         <a class="nav-link" routerLink="/jouer">Jouer</a>
       </li>
-      <li class="nav-item active" *ngIf="srvUser.user!=null">
+      <li class="nav-item active" *ngIf="srvUser.user!=null" style="cursor:pointer">
         <a class="nav-link" routerLink="/deconnexion">Deconnexion</a>
       </li>
-      <li class="nav-item active" *ngIf="srvUser.user==null">
+      <li class="nav-item active" *ngIf="srvUser.user==null" style="cursor:pointer">
           <a class="nav-link" routerLink="/connexion">Se connecter</a>
       </li>
-      <li class="nav-item active" *ngIf="srvUser.user==null">
-        <a class="nav-link" routerLink="/inscription">S'inscrire'</a>
+      <li class="nav-item active" *ngIf="srvUser.user==null" style="cursor:pointer">
+        <a class="nav-link" routerLink="/inscription">S'inscrire</a>
       </li>
       <li class="nav-item active">
-          <a class="nav-link" routerLink="/parties">Listes des parties finies</a>
+          <a class="nav-link" routerLink="/parties" style="cursor:pointer">Listes des parties finies</a>
       </li>
       <li class="nav-item active">
-          <a class="nav-link" routerLink="/regles">Règles du jeu</a>
+          <a class="nav-link" routerLink="/regles" style="cursor:pointer">Règles du jeu</a>
       </li>
     </ul>
   </div> 

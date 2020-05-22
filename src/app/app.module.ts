@@ -17,6 +17,7 @@ import { DeconnexionComponent } from './deconnexion/deconnexion.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'connexion', component: ConnectionComponent },
+  { path: 'deconnexion', component: DeconnexionComponent },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'jouer', component: JouerComponent },
   { path: 'parties', component: PartiesComponent },

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deconnexion',
@@ -8,16 +9,13 @@ import { UserService } from '../user.service';
 })
 export class DeconnexionComponent implements OnInit {
 
-  public user = null;
+  constructor(private srvUser : UserService, private router: Router) {}
 
-  constructor(private srvUser : UserService) { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.srvUser.deconnexion();
+    this.router.navigate (['/home']);
   }
 
-
-  public deconnexion() {
-    this.user = null;
-    this.srvUser.deconnexion(this.user)
+  public deconnection() {
   }
 }

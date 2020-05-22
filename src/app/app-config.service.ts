@@ -16,13 +16,11 @@ export class AppConfigService {
   constructor() {}
 
    public setUser(user) {
-
     this.currentUser=user;
 
     let myHeaders: HttpHeaders = new HttpHeaders();
-    myHeaders = myHeaders.append('Authorization', 'Basic ' + btoa(this.currentUser.username+':'+this.currentUser.username));
+    myHeaders = myHeaders.append('Authorization', 'Basic ' + btoa(this.currentUser.username+':'+this.currentUser.password));
     this.httpOptions = { headers: myHeaders };
-
    }
 
 }
