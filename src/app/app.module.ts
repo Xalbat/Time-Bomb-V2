@@ -32,7 +32,8 @@ const routes: Routes = [
     PartiesComponent,
     ReglesComponent,
     TimeBombComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    ConnectionComponent
   ],
   imports: [
     BrowserModule, FormsModule,
