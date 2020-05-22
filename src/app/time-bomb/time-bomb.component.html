@@ -1,4 +1,4 @@
-<!-- Quand la partie du user démarre
+ Quand la partie du user démarre
 <span *ngIf="match.state=='PLAYING'">
 
     <br><br>
@@ -19,6 +19,26 @@
     
     <br><br>
     
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Manche n°</th>
+            <th scope="col">Detonateur(s) restant(s)</th>
+            <th scope="col">La pince est a :</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>{{ srvMatch.match.manche }}</th>
+            <td>{{ srvMatch.match.detonateur }}</td>
+            <td>{{ user.username.current }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    <br>
+    <br>
+
     <div>
         <div *ngFor="let user from match.players(), index as i" class="row" >
             <div class="col-3" style="border:solid">
@@ -30,4 +50,4 @@
         </div>
     </div>
 
-</span> -->
+</span> 
