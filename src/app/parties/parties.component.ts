@@ -12,7 +12,6 @@ export class PartiesComponent implements OnInit {
 
   ngOnInit(): void {
     this.listeMatchterminees();
-    alert(this.srvMatch.matchesTermines)
   }
 
   public listeMatchterminees() {

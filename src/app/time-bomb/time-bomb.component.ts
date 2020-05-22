@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatchService } from '../match.service';
-import { NgIf } from '@angular/common';
 import { timer } from 'rxjs';
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-time-bomb',
@@ -10,26 +11,25 @@ import { timer } from 'rxjs';
 })
 export class TimeBombComponent implements OnInit {
 
-  user = null;
+  user: User;
   current : number;
 
-  constructor(public srvMatch: MatchService) { }
+  constructor(public srvMatch: MatchService, public srvUser: UserService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+      this.srvMatch.maPartie();
+      this.user=this.srvMatch.currentMatch.players.find(user =>
+          user.id==this.srvUser.user.id);
+      alert(this.user.currentRole)
   }
-  
 
-  public joueurCurrent() {
-    this.current = Math.floor(Math.random() * (this.srvMatch.match.size  + 1))
-    return this.current;
-    }
-
-    
+  public maPartie() {
+    this.srvMatch.maPartie();
+  }
 
   public choisirCarte(card) {
     card.reveal = true;
     this.current = card.owner;
-  
   }
 
   public jouer(user, card, current) {

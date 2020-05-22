@@ -1,52 +1,50 @@
-<span> <!-- *ngIf="match.state=='PLAYING'" -->
-
-    <br><br>
+<span>
 
     <div style="display: flex;" *ngIf="user.currentRole=='SHERLOCK'">
-        <img  src= " 'assets\sherlock.jpg' ">
-        <div >
-            Vous êtes dans la team de Sherlock Holmes. Désamorcer les cables avant que la bombe n'explose !
-        </div>
-    </div>
-    
-    <div style="display: flex;" *ngIf="user.currentRole=='MORIARTY'">
-        <img  src= " 'assets\moriarty.jpg' ">
-        <div >
-            Vous êtes dans la team de Moriarty. Faites exploser la bombe ou empêchez les compères de Holmes de la désamorcer !
-        </div>
-    </div>
-    
-    <br><br>
-    
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Manche n°</th>
-            <th scope="col">Detonateur(s) restant(s)</th>
-            <th scope="col">La pince est a :</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <!-- <th>{{ srvMatch.match.manche }}</th>
-            <td>{{ srvMatch.match.detonateur }}</td>
-            <td>{{ current }}</td> -->
-          </tr>
-        </tbody>
-      </table>
+      <img  src= " 'assets\sherlock.jpg' ">
+      <div >
+          Vous êtes dans la team de Sherlock Holmes. Désamorcer les cables avant que la bombe n'explose !
+      </div>
+  </div>
 
-    <br>
-    <br>
+  <div style="display: flex;" *ngIf="user.currentRole=='MORIARTY'">
+      <img  src= " 'assets\moriarty.jpg' ">
+      <div >
+          Vous êtes dans la team de Moriarty. Faites exploser la bombe ou empêchez les compères de Holmes de la désamorcer !
+      </div>
+  </div>
 
-    <div>
-        <div *ngFor="let user from match.players(), index as i" class="row" >
-            <div class="col-3" style="border:solid">
-              <span style="text-align: center">{{user.name}} ({{user.currentRole}})</span>
-              <div *ngFor="let card from user.hand()"onmouseup="cursor()" onmouseup="jeux(user,card.id)" (click)="choisirCarte(card)">
-                <img //reglage taille// src= " 'assets\' + //Pipe=>chaine de caractère("bomb", "bait", "deffuse", "recto")// + '.jpg' ">
-              </div>
+  <br><br>
+
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Manche n°</th>
+          <th scope="col">Detonateur(s) restant(s)</th>
+          <th scope="col">La pince est a :</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- <th>{{ srvMatch.match.manche }}</th>
+          <td>{{ srvMatch.match.detonateur }}</td>
+          <td>{{ current }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+
+  <br>
+  <br>
+
+  <div>
+      <div *ngFor="let user from match.players(), index as i" class="row" >
+          <div class="col-3" style="border:solid">
+            <span style="text-align: center">{{user.name}} ({{user.currentRole}})</span>
+            <div *ngFor="let card from user.hand()"onmouseup="cursor()" onmouseup="jeux(user,card.id)" (click)="choisirCarte(card)">
+              <img //reglage taille// src= " 'assets\' + //Pipe=>chaine de caractère("bomb", "bait", "deffuse", "recto")// + '.jpg' ">
             </div>
-        </div>
-    </div>
+          </div>
+      </div>
+  </div>
 
 </span>  
